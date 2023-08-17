@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+
+<body>
+    <!-- <h1>hi</h1> -->
+    <div class="container">
+        <div class="mg1" id="nh1"></div>
+        <div class="mg0" id="nh2"></div>
+        <div class="mgd"></div>
+        <div class="mg1" id="nm1"></div>
+        <div class="mg9" id="nm2"></div>
+        <div class="mgd"></div>
+        <div class="mg1" id="ns1"></div>
+        <div class="mg3" id="ns2"></div>
+    </div>
+
+
+    <script>
+
+        function timeFun() {
+            const nt = new Date();
+            const nt1 = Date();
+            const nh = nt.getHours();
+            const nm = nt.getMinutes();
+            const ns = nt.getSeconds();
+            console.log('nt', nt);
+            console.log('nh', nh);
+            console.log('nm', nm);
+            console.log('ns', ns);
+            console.log('nt1', nt1);
+
+            //除十後捨去
+            const nh1 = Math.floor(nh / 10);
+            //取餘數
+            const nh2 = nh % 10;
+            console.log('nh1', nh1);
+            console.log('nh2', nh2);
+            // 分
+            const nm1 = String(nm).substr(0, 1);
+            const nm2 = String(nm).substr(1);
+            console.log('nm1', nm1);
+            console.log('nm2', nm2);
+            // 秒
+            const ns1 = String(ns).slice(0, 1);
+            const ns2 = String(ns).slice(1);
+            console.log('ns1', ns1);
+            console.log('ns2', ns2);
+
+            // 綁
+            const nh1A = document.getElementById('nh1')
+            const nh2A = document.getElementById('nh2')
+            const nm1A = document.getElementById('nm1')
+            const nm2A = document.getElementById('nm2')
+            const ns1A = document.getElementById('ns1')
+            const ns2A = document.getElementById('ns2')
+            nh1A.setAttribute('class', `mg${nh1}`);
+            nh2A.setAttribute('class', `mg${nh2}`);
+            nm1A.setAttribute('class', `mg${nm1}`);
+            nm2A.setAttribute('class', `mg${nm2}`);
+            ns1A.setAttribute('class', `mg${ns1}`);
+            ns2A.setAttribute('class', `mg${ns2}`);
+
+// 冒號透明100%
+            const mgd = document.querySelectorAll('.mgd');
+            console.log(mgd);
+            mgd[0].style.opacity = 1;
+            mgd[1].style.opacity = 1;
+
+            setTimeout(() => {
+                // const mgd = document.querySelectorAll('.mgd');
+                console.log(mgd);
+                mgd[0].style.opacity = 0;
+                mgd[1].style.opacity = 0;
+            }, 500)
+
+        }
+
+        timeFun();
+        // 每秒
+        setInterval(timeFun, 1000)
+        console.log('timeFun', timeFun);
+
+        // 設定 : 閃爍
+    </script>
+</body>
+
+</html>
